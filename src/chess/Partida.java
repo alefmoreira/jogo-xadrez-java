@@ -1,6 +1,8 @@
 package chess;
 
+import boardgame.Posicao;
 import boardgame.Tabuleiro;
+import chess.pecas.Torre;
 
 public class Partida {
 
@@ -8,6 +10,7 @@ public class Partida {
 
     public Partida(){
         tabuleiro = new Tabuleiro(8,8);
+        configInicial();
     }
     public PecaXadrez[][] getPecas (){
         PecaXadrez[][] mat = new PecaXadrez[tabuleiro.getLinhas()][tabuleiro.getColunas()];
@@ -17,6 +20,9 @@ public class Partida {
             }
         }
         return mat;
+    }
+    private void configInicial(){
+        tabuleiro.lugarPeca(new Torre(tabuleiro, Cor.BRANCO), new Posicao(1, 3));
     }
 
 
