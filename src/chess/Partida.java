@@ -2,7 +2,9 @@ package chess;
 
 import boardgame.Posicao;
 import boardgame.Tabuleiro;
+import chess.pecas.Rei;
 import chess.pecas.Torre;
+import chess.XadrezPosicao;
 
 public class Partida {
 
@@ -21,9 +23,14 @@ public class Partida {
         }
         return mat;
     }
-    private void configInicial(){
-        tabuleiro.lugarPeca(new Torre(tabuleiro, Cor.BRANCO), new Posicao(1, 3));
+    private void lugarNovaPeca(char coluna, int linha, PecaXadrez pecaXadrez){
+        tabuleiro.lugarPeca(pecaXadrez, new XadrezPosicao(coluna, linha).toPositon());
     }
+    private void configInicial(){
+        lugarNovaPeca('b', 5, new Torre(tabuleiro, Cor.BRANCO));
+
+    }
+
 
 
 }
